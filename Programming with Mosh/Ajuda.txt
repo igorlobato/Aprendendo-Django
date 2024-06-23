@@ -1,0 +1,14 @@
+Mosh disse que o ideal era anotar o fosse visto em seu vídeo, então aqui vou anotar o que acho que seja necessário.
+
+/home/igor/.local/share/virtualenvs/storefront-F5iQmPim Local criado pelo Django
+
+django-admin startproject nome do projeto . / Cria o projeto na pasta em que está, se não tiver o . então ele cria uma pasta.
+
+python manage.py runserver / Poe o servidor pra rodar
+
+Caminho do interpretador
+
+/home/igor/.local/share/virtualenvs/storefront-F5iQmPim/bin/python
+
+Cria um APP
+python manage.oy startapp nomedoapp
