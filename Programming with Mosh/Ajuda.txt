@@ -12,3 +12,6 @@ Caminho do interpretador
 
 Cria um APP
 python manage.oy startapp nomedoapp
+
+# Em outro terminal, inicie o Celery
+celery -A gerenciadordetarefas worker --loglevel=info

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% if form.instance.id %}Editar{% else %}Nova{% endif %} Tarefa</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.id %}Atualizar{% else %}Criar{% endif %}</button>
+  </form>
+{% endblock %}
