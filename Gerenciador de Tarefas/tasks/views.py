@@ -3,6 +3,8 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from .forms import TaskForm, SignUpForm
+from django.contrib import messages
+
 
 def signup(request):
     if request.method == 'POST':
@@ -10,7 +12,10 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, 'Cadastro realizado com sucesso!')
             return redirect('index')
+        else:
+            messages.error(request, 'Erro ao tentar realizar o cadastro. Por favor, verifique os dados e tente novamente.')
     else:
         form = SignUpForm()
     return render(request, 'tasks/signup.html', {'form': form})
