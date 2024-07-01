@@ -1,7 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from .models import Task
-from .forms import TaskForm
+from .forms import TaskForm, SignUpForm
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request, 'tasks/signup.html', {'form': form})
 
 @login_required
 def index(request):

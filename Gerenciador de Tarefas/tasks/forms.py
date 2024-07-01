@@ -9,7 +9,6 @@ class TaskForm(forms.ModelForm):
         fields = ['title', 'description', 'due_date', 'completed', 'category', 'tags']
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
-
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
