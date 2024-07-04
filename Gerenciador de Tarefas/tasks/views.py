@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Task
 from .forms import TaskForm, SignUpForm
 from django.contrib import messages
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 def signup(request):
     if request.method == 'POST':
@@ -15,6 +18,7 @@ def signup(request):
             messages.success(request, 'Cadastro realizado com sucesso!')
             return redirect('index')
         else:
+            print(form.errors)
             messages.error(request, 'Erro ao tentar realizar o cadastro. Por favor, verifique os dados e tente novamente.')
     else:
         form = SignUpForm()

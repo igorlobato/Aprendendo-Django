@@ -1,25 +1,4 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gerenciador de Tarefas</title>
-</head>
-<body>
-    <h1>Bem vindo ao Gerenciador de Tarefas</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Index</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'logout' %}">Sair</a></li>
-            {% else %}
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Registrar</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-</body>
-</html>
-
 
 {% block content %}
   <h1>Minhas Tarefas</h1>
