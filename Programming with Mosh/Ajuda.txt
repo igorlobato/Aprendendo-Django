@@ -15,3 +15,12 @@ python manage.oy startapp nomedoapp
 
 # Em outro terminal, inicie o Celery
 celery -A gerenciadordetarefas worker --loglevel=info
+
+# Entra no shell
+python manage.py shell
+
+# Adiciona categorias no banco de dados
+from tasks.models import Category
+Category.objects.create(name="Trabalho")
+Category.objects.create(name="Pessoal")
+Category.objects.create(name="Outros")
