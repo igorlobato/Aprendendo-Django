@@ -11,4 +11,23 @@
     {% endfor %}
   </ul>
   <a href="{% url 'task_create' %}">Nova Tarefa</a>
+  <div id="calendar"></div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: ['dayGrid'],
+          events: [
+          ],
+          eventClick: function(info) {
+              window.location.href = info.event.url;
+          }
+      });
+
+      calendar.render();
+  });
+  </script>
+
 {% endblock %}

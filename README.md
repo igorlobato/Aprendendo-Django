@@ -11,6 +11,7 @@ Este é um aplicativo de gerenciamento de tarefas desenvolvido com Django, que i
    - Recuperação de senha
 
 2. **Gestão de Tarefas**:
+   - As datas das tarefas devem ser cadastradas no seguinte formato: Ano-Mẽs-Dia 00:00:00
    - Criar, editar e excluir tarefas
    - Marcar tarefas como concluídas
    - Atribuir tarefas a diferentes usuários
@@ -22,22 +23,15 @@ Este é um aplicativo de gerenciamento de tarefas desenvolvido com Django, que i
    - Exibir tarefas pendentes, concluídas e futuras em um dashboard
    - Filtrar tarefas por data, categoria ou etiqueta
 
-5. **Notificações e Lembretes**:
-   - Notificações por e-mail para lembretes de tarefas próximas do prazo
-
-6. **API REST**:
-   - Endpoints para permitir integração com outras aplicações
-
-7. **Interface de Usuário (UI)**:
-   - Interface amigável utilizando Django Templates ou uma integração com um frontend como React/Vue.js (opcional)
+5. **Notificações e Lembretes (Retirado)**:
+   - Notificações por e-mail para lembretes de tarefas próximas do prazo (Para essa funcionalidade seria preciso configurar um e-mail para fazer isso, no meu caso não tenho o porque fazer isso em um programa que não irá ser comercializado.)
 
 ## Tecnologias Utilizadas
 
 - **Django**: Backend e sistema de templates
-- **Django REST Framework**: API REST
 - **Celery**: Tarefas assíncronas e agendamento de lembretes
-- **Bootstrap**: Interface de usuário (ou outro framework CSS)
-- **SQLite**: Banco de dados (para desenvolvimento, considere PostgreSQL para produção)
+- **Bootstrap**: Interface de usuário
+- **SQLite**: Banco de dados
 - **Git**: Controle de versão
 - **GitHub**: Hospedagem do código
 
@@ -87,8 +81,3 @@ Este é um aplicativo de gerenciamento de tarefas desenvolvido com Django, que i
 - Acesse o aplicativo em `http://127.0.0.1:8000`
 - Faça login com sua conta
 - Gerencie suas tarefas, categorias e etiquetas
-- Configure notificações e lembretes
-
-## API REST
-
-A API REST permite integração com outras aplicações. A documentação dos endpoints pode ser encontrada em `http://127.0.0.1:8000/api-docs`.

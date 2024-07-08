@@ -24,3 +24,16 @@ from tasks.models import Category
 Category.objects.create(name="Trabalho")
 Category.objects.create(name="Pessoal")
 Category.objects.create(name="Outros")
+
+#para criação de tags
+tag1 = Tag(name="Urgente")
+tag1.save()
+
+tag2 = Tag(name="Importante")
+tag2.save()
+
+tag3 = Tag(name="Opcional")
+tag3.save()
+
+#verifica as tags
+Tag.objects.all()
