@@ -10,3 +10,19 @@
 .pending-task {
     color: blue;
 }
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center;
+}

@@ -14,14 +14,13 @@ Este é um aplicativo de gerenciamento de tarefas desenvolvido com Django, que i
    - As datas das tarefas devem ser cadastradas no seguinte formato: Ano-Mẽs-Dia 00:00:00
    - Criar, editar e excluir tarefas
    - Marcar tarefas como concluídas
-   - Atribuir tarefas a diferentes usuários
 
 3. **Categorias e Etiquetas**:
-   - Criar categorias e etiquetas para organizar tarefas
+   - Colocar categorias e etiquetas para as tarefas
 
 4. **Dashboard e Visualização de Tarefas**:
-   - Exibir tarefas pendentes, concluídas e futuras em um dashboard
-   - Filtrar tarefas por data, categoria ou etiqueta
+   - Exibir tarefas concluídas e pendentes em um dashboard
+   - Calendário dinânimco para visualizar as tarefas
 
 5. **Notificações e Lembretes (Retirado)**:
    - Notificações por e-mail para lembretes de tarefas próximas do prazo (Para essa funcionalidade seria preciso configurar um e-mail para fazer isso, no meu caso não tenho o porque fazer isso em um programa que não irá ser comercializado.)
@@ -80,4 +79,4 @@ Este é um aplicativo de gerenciamento de tarefas desenvolvido com Django, que i
 
 - Acesse o aplicativo em `http://127.0.0.1:8000`
 - Faça login com sua conta
-- Gerencie suas tarefas, categorias e etiquetas
+- Gerencie suas tarefas!
