@@ -5,6 +5,11 @@ from .models import Task
 from .forms import TaskForm, SignUpForm
 from django.contrib import messages
 
+def index(request):
+    tasks = Task.objects.all()
+    return render(request, 'tasks/index.html', {'tasks': tasks})
+
+
 def logout_view(request):
     logout(request)
     return redirect('index')

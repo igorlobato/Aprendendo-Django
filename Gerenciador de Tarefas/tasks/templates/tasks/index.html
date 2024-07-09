@@ -4,30 +4,64 @@
   <h1>Minhas Tarefas</h1>
   <ul>
     {% for task in tasks %}
-      <li>
+      <li class="{% if task.completed %}completed-task{% else %}pending-task{% endif %}">
         <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
         {% if task.completed %} (Concluída) {% endif %}
       </li>
     {% endfor %}
   </ul>
-  <a href="{% url 'task_create' %}">Nova Tarefa</a>
+  <a href="{% url 'task_create' %}" class="btn btn-primary">Nova Tarefa</a>
+  <p>
   <div id="calendar"></div>
-
+  
   <script>
   document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
+      var events = [
+        {% for task in tasks %}
+          {
+            title: '{{ task.title }}',
+            start: '{{ task.due_date|date:"Y-m-d" }}',
+            url: '{% url "task_detail" task.id %}'
+          },
+        {% endfor %}
+      ];
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: ['dayGrid'],
-          events: [
-          ],
+          initialView: 'dayGridMonth',
+          events: events,
+          eventMouseEnter: function(info) {
+              var tooltip = document.createElement('div');
+              tooltip.className = 'fc-tooltip';
+              tooltip.innerHTML = info.event.title;
+              document.body.appendChild(tooltip);
+              tooltip.style.left = info.jsEvent.pageX + 'px';
+              tooltip.style.top = info.jsEvent.pageY + 'px';
+              tooltip.style.zIndex = '10000';
+              info.el.addEventListener('mouseleave', function() {
+                  tooltip.remove();
+              });
+          },
           eventClick: function(info) {
-              window.location.href = info.event.url;
+              if (info.event.url) {
+                  window.location.href = info.event.url;
+                  info.jsEvent.preventDefault(); // don't let the browser navigate
+              }
           }
       });
 
       calendar.render();
   });
   </script>
-
+  <style>
+    .fc-tooltip {
+        position: absolute;
+        background: white;
+        border: 1px solid black;
+        padding: 5px;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        white-space: nowrap;
+    }
+  </style>
 {% endblock %}

@@ -1,0 +1,12 @@
+#calendar {
+    max-width: 550px;
+}
+
+.completed-task {
+    color: green;
+    text-decoration: line-through;
+}
+
+.pending-task {
+    color: blue;
+}

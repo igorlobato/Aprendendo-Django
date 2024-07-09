@@ -12,7 +12,10 @@
   </p>
   <a href="{% url 'task_edit' task.id %}">Editar</a>
   <form method="POST" action="{% url 'task_delete' task.id %}">
+    <br>
     {% csrf_token %}
     <button type="submit">Excluir</button>
   </form>
+  <br>
+  <a href="{% url 'index' %}" class="btn btn-secondary">Voltar</a>
 {% endblock %}
